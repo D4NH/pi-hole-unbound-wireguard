@@ -748,12 +748,6 @@ ListenPort = 51820
 
 **Note**: Some public wifi networks will block all ports other than `80` (TCP), `443` (TCP), and `53` (UDP) for HTTP, HTTPS, and DNS respectively. If you are connected to a public wifi network that does this, you will not be able to connect to your WireGuard VPN. One way around this is to set your WireGuard `ListenPort` to `53` and create a forward on your network's router on port `53`, thus circumventing the issue with blocked ports. Do this at your own risk, and definitely, **do not** enable Pi-hole's *Listen on all interfaces, permit all origins* DNS option if you are forwarding port `53` on your router.
 
-Replace `192.168.x.x` with the static IP address of your Raspberry Pi:
-
-```
-DNS = 192.168.x.x
-```
-
 Replace `<server_privatekey>` with the output of your `cat server_privatekey` command earlier:
 
 ```
@@ -1023,31 +1017,31 @@ When connected to your VPN from outside the network, you can check to see if the
 
 There are several write-ups out there on how to do this, as well as install scripts to do it for you. Since the Raspberry Pi was meant to be a learning tool, I used this opportunity to figure things out on my own with the help of documentation from both software creators and the community. If it weren't for the latter, I doubt I would've been able to do this on my own. Thanks to everyone who has taken the time to share their knowledge, and experience, in setting up a Raspberry Pi.
 
-- **[Build Your Own WireGuard VPN Server with Pi-hole for DNS Level Ad Blocking](https://www.sethenoka.com/build-your-own-wireguard-vpn-server-with-pi-hole-for-dns-level-ad-blocking/)**  
+- **[Build Your Own WireGuard VPN Server with Pi-hole for DNS Level Ad Blocking](https://www.sethenoka.com/build-your-own-wireguard-vpn-server-with-pi-hole-for-dns-level-ad-blocking/)**
 Seth Enoka's write-up includes some additional firewall setup with IPtables, which I skipped. But this is an excellent reference for what we're doing, even though he uses a VPS with Ubuntu rather than a Raspberry Pi.
 
-- **[Raspbian GNU/Linux 10 (buster) Lite](https://github.com/harrypnyce/raspbian10-buster)**  
+- **[Raspbian GNU/Linux 10 (buster) Lite](https://github.com/harrypnyce/raspbian10-buster)**
 Harry Nyce posted [his Pi experiments on Reddit](https://www.reddit.com/r/pihole/comments/c62np8/pihole_with_unbound_wireguard_vpn_server_on_a/), which prompted me to start this endeavor. I found his notes helpful, though the process was confusing at times.
 
-- **[AdBlocking VPN Proxy Server (Pi-hole, Wireguard, Privoxy, Unbound)](https://github.com/crozuk/pi-hole-wireguard-privoxy)**  
+- **[AdBlocking VPN Proxy Server (Pi-hole, Wireguard, Privoxy, Unbound)](https://github.com/crozuk/pi-hole-wireguard-privoxy)**
 Richard Crosby's overview here is great, though missing some of the details. He's also adding a VPN proxy server, which I decided to skip.
 
-- **[Set up Pi-hole as truly self-contained DNS resolver](https://github.com/anudeepND/pihole-unbound)**  
+- **[Set up Pi-hole as truly self-contained DNS resolver](https://github.com/anudeepND/pihole-unbound)**
 Anudeep's setup of Unbound to work with Pi-hole was extremely helpful to understand how the two work together.
 
-- **[Unbound: How to enable DNSSEC](https://www.nlnetlabs.nl/documentation/unbound/howto-anchor/)**  
+- **[Unbound: How to enable DNSSEC](https://www.nlnetlabs.nl/documentation/unbound/howto-anchor/)**
 NLnet Labs explains what DNSSEC is and how to enable it in Unbound.
 
-- **[Easy As Pi Installer](https://github.com/ShaneCaler/EasyAsPiInstaller)**  
+- **[Easy As Pi Installer](https://github.com/ShaneCaler/EasyAsPiInstaller)**
 Shane Caler's "one-stop-shop" to set up WireGuard, Pi-hole, and Unbound on a Raspberry Pi. I didn't have a chance to try this out, but it might be a nice replacement for all of this at some point (and it's also probably a good place to learn).
 
-- **[WireGuard Installation (Raspberry Pi 2 v1.2 and above)](https://github.com/adrianmihalko/raspberrypiwireguard)**  
+- **[WireGuard Installation (Raspberry Pi 2 v1.2 and above)](https://github.com/adrianmihalko/raspberrypiwireguard)**
 Adrian Mihalko's excellent instructions on installing WireGuard on a Raspberry Pi.
 
-- **[Some Unofficial WireGuard Documentation](https://github.com/pirate/wireguard-docs)**  
+- **[Some Unofficial WireGuard Documentation](https://github.com/pirate/wireguard-docs)**
 Unofficial, but hugely helpful, documentation on WireGuard.
 
-- **[How to Set Up WireGuard on a Raspberry Pi](https://engineerworkshop.com/2020/02/20/how-to-set-up-wireguard-on-a-raspberry-pi/)**  
+- **[How to Set Up WireGuard on a Raspberry Pi](https://engineerworkshop.com/2020/02/20/how-to-set-up-wireguard-on-a-raspberry-pi/)**
 Step-by-step instructions on getting WireGuard working on a Raspberry Pi. Matches what I had already written, but I cleaned up a bit of my own documentation thanks to this article.
 
 ## To-Do
